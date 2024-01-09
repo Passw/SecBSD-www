@@ -1,0 +1,418 @@
+@font-face {
+  font-family: 'Spleen';
+  src: url('spleen.otf') format('opentype');
+}
+
+body {
+  background: url(img/bg.png) no-repeat fixed black;
+  color: #97fd00;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Spleen';
+  font-size: 1em;
+  margin: 0;
+  padding: 0;
+}
+
+/* main style */
+
+a {
+  color: #97fd00;
+  text-decoration: none;
+}
+
+h2 {
+  color: #97fd00;
+  display: block;
+  font-weight: bold;
+  margin: 0.67em;
+}
+
+h3 {
+  color: #5852fb;
+  display: block;
+  margin: 0.67em;
+}
+
+.green {
+  color: #97fd00;
+}
+
+.purple {
+  color: #5852fb;
+}
+
+.year {
+  font-size: 4em;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.title {
+  display: block;
+  font-weight: bold;
+  margin: 2.5em 0 0 2.5em;
+}
+
+.subtitle {
+  color: #5852fb;
+  display: block;
+  font-weight: bold;
+  margin: 0 0 0 2.5em;
+}
+
+/* box */
+
+.box {
+  background-color: black;
+  margin: 10px auto;
+  opacity: 0.9;
+  padding: 0.5em;
+  width: 800px;
+}
+
+.team {
+  margin: 10px auto;
+  padding: 0.5em;
+}
+
+/* txt section */
+
+.txt {
+  height: auto;
+  left: 100px;
+  position: relative;
+  top: -20px;
+  width: 600px;
+}
+
+/* navigation */
+
+nav {
+  background: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+nav ul {
+  align-items: center;
+  background: none;
+  display: flex;
+  list-style: none;
+  padding: 0 15em 0 0;
+}
+
+nav .active {
+  color: #5852fb;
+}
+
+/* arthome */
+
+.arthome img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 93%;
+  z-index: -8;
+}
+
+/* team */
+
+.item {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.artwork img {
+  max-width: 100%;
+  height: auto;
+}
+
+.row {
+  margin-bottom: 1.5rem;
+}
+
+/* logo */
+
+nav div:first-child {
+  margin: 0 0;
+  padding: 1rem;
+  text-align: center;
+}
+
+nav div:first-child img {
+  height: 40px;
+}
+
+nav ul li {
+  border-bottom: none;
+  flex: 1 0 auto;
+  position: relative;
+}
+
+nav ul li a {
+  color: #97fd00;
+  display: block;
+  letter-spacing: 0.31em;
+  line-height: 1;
+  padding: 0.8rem 1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+ul.list {
+  list-style: none;
+}
+
+ul.list li::before {
+  content: "\2023";
+  color: #5852fb;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+/* welcome */
+
+.welcome {
+  border-radius: 20px;
+  left: 100px;
+  line-height: 1.2;
+  position: absolute;
+  top: 100px;
+  width: 560px;
+}
+
+/* docs */
+
+.docs {
+  left: 550px;
+  top: 100px;
+}
+
+code {
+  white-space: nowrap;
+}
+
+dt {
+  float: left;
+  margin-left: 40px;
+}
+
+dd {
+  margin: 0 0 0 10em;
+}
+
+.cmdbox {
+  border: 1px solid #97fd00;
+  color: #97fd00;
+  overflow: auto;
+  padding: 10px;
+}
+
+/* roadmap */
+
+.roadmap {
+  border: 2px solid #97fd00;
+  width: 1400px;
+}
+
+.roadmaptxt {
+  height: auto;
+  left: 150px;
+  position: relative;
+  top: -20px;
+  width: 1000px;
+}
+
+.tables {
+  margin: 1.5em;
+  position: relative;
+  top: -50px;
+}
+
+hr {
+  border: 2px solid #97fd00;
+  margin: 35px 0 35px 0;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+table caption {
+  color: #97fd00;
+  font-size: 1.5em;
+  margin: 0.5em 0 0.75em;
+}
+
+table tr {
+  padding: 0.35em;
+}
+
+table th,
+table td {
+  padding: 0.625em;
+  text-align: left;
+}
+
+table th {
+  border: 1px solid #97fd00;
+  border-left: transparent;
+  border-top-color: transparent;
+  font-size: 0.85em;
+  letter-spacing: 0.1em;
+}
+
+thead,
+tfoot {
+  color: #97fd00;
+}
+
+/* footer */
+
+.footer {
+  bottom: 20px;
+  left: 70px;
+  position: absolute;
+}
+
+/* contact  */
+
+.contact li {
+  align-items: center;
+  display: inline-block;
+  list-style-type: none;
+  margin-right: 15px;
+}
+
+/* mobile devices */
+
+@media only screen and (max-width: 30em) {
+  nav {
+    flex-direction: column;
+  }
+
+  nav div:first-child {
+    justify-content: center;
+    line-height: 0;
+    text-align: center;
+  }
+
+  nav ul {
+    background: none;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+  }
+
+  nav ul li a {
+    display: block;
+    line-height: 1;
+    padding: 0.8rem 1rem;
+    text-decoration: none;
+  }
+
+  /* box */
+
+  .box {
+    width: 380px;
+  }
+
+  /* txt section */
+
+  .txt {
+    height: auto;
+    left: 0;
+    top: 20px;
+    width: auto;
+  }
+
+  /* welcome */
+
+  .welcome {
+    left: 10px;
+    top: 550px;
+  }
+
+  .arthome img {
+    display: none;
+  }
+
+  /* roadmap */
+
+  .roadmap {
+    width: auto;
+  }
+
+  .roadmaptxt {
+    left: 15px;
+    top: 15px;
+    width: auto;
+  }
+
+  /* roadmap tables */
+
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  table tr {
+    display: block;
+    margin-bottom: 0.625em;
+  }
+
+  table td {
+    display: block;
+    font-size: 0.8em;
+    text-align: right;
+  }
+
+  table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+  }
+
+  table td:last-child {
+    border-bottom: 0;
+  }
+
+  /* team */
+
+  .team {
+    width: 380px;
+  }
+
+  .team img {
+    width: 100%;
+  }
+
+  /* footer */
+
+  .footer {
+    display: none;
+  }
+}

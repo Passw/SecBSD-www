@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset=utf-8>
+		<title>Download SecBSD & Create Bootable OS Image</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="SecBSD Download">
+		<link rel="canonical" href="https://secbsd.org/">
+		<link rel="stylesheet" href="secbsd.css">
+	</head>
+	<body>
+		<header>
+			<nav>
+				<div>
+					<h1><a href="index.html">
+						<img src="/img/logo.png" alt="[SecBSD]"></a>
+					</h1>
+				</div>
+				<ul>
+					<li><a href="index.html">About</a></li>
+					<li><a class="active">Download</a></li>
+					<li><a href="docs.html">Docs</a></li>
+					<li><a href="faq.html">Faq</a></li>
+					<li><a href="team.html">Team</a></li>
+					<li><a href="sponsors.html">Sponsors</a></li>
+				</ul>
+			</nav>
+		</header>
+		<div class="box docs">
+			<h3><span class="green">&#x2588;</span> Download SecBSD & Create Bootable OS Image</h3>
+			<p>
+				Installation images .img and .iso are available on main SecBSD mirror:<br><br>
+				<a href="https://mirror.secbsd.org/pub/SecBSD/snapshots/amd64/">
+				https://mirror.secbsd.org/pub/SecBSD/snapshots/amd64/</a><br><br>
+
+                                Laylo mirror, Netherlands:<br><br>
+                                <a href="https://mirror.laylo.nl/pub/SecBSD/snapshots/amd64/">
+                                https://mirror.laylo.nl/pub/SecBSD/snapshots/amd64/</a><br><br>
+
+				Tor Onion service by Laylo:<br><br>
+				<a href="http://zqsjg25lnx7zratmne3dhbcqt5paehitom3qp2rjmwttuy7gzbzqwayd.onion/pub/SecBSD/">
+				http://zqsjg25lnx7zratmne3dhbcqt5paehitom3qp2rjmwttuy7gzbzqwayd.onion/pub/SecBSD/</a><br><br>
+				To install SecBSD from either an USB flash drive download install14.img<br>
+				If you want to install SecBSD from either an optic medium as CD-ROM / DVD
+				download install14.iso
+			</p>
+			<h3><span class="green">&#x2588;</span> Prepare a bootable USB flash drive with SecBSD Installer</h3>
+			<h3>From:</h3>
+			<p>
+			<ul class="list">
+				<li><a href="#secbsd-openbsd">SecBSD / OpenBSD</a></li>
+				<li><a href="#hardened-freebsd">HardenedBSD / FreeBSD</a></li>
+				<li><a href="#netbsd">NetBSD</a></li>
+				<li><a href="#mac">Mac</a></li>
+				<li><a href="#windows">Windows</a></li>
+				<li><a href="#gnu-linux">GNU/Linux</a></li>
+			</ul>
+			<h3 id="#secbsd-openbsd"><span class="green">&#x2588;</span>
+				SecBSD / OpenBSD
+			</h3>
+			<p>
+			<pre class="cmdbox">
+$ cd /tmp
+$ ftp https://mirror.secbsd.org/pub/SecBSD/snapshots/secbsd-14-base.pub
+$ ftp https://mirror.secbsd.org/pub/SecBSD/snapshots/amd64/{install14.img,SHA256.sig}
+$ signify -Cp secbsd-14-base.pub -x SHA256.sig install14.img
+Signature Verified
+install14.img: OK
+</pre>
+			<p class="purple">Plug in an usb flash drive.</p>
+			<pre class="cmdbox">
+$ sysctl hw.disknames
+hw.disknames=sd0:xxxxxxxxxxxxxxxx,sd1:xxxxxxxxxxxxxxxx
+</pre>
+			<p class="purple">Assuming the device was recognized as sd1:</p>
+			<pre class="cmdbox">
+$ doas dd if=install14.img of=/dev/rsd1c bs=1m
+664+1 records in
+664+1 records out
+696745984 bytes transferred in 72.198 secs (9650464 bytes/sec)
+</pre>
+			You are now ready to start installing SecBSD.<br>
+			<p class="purple">
+			Now boot on usb flash drive created and <a href="docs.html#install">perform a install.</a><br>
+			<p class="purple">
+			How to <a href="docs.html#xfce">install XFCE Desktop</a> on SecBSD.
+
+			<h3 id="hardened-freebsd"><span class="green">&#x2588;</span>
+				HardenedBSD / FreeBSD
+			</h3>
+			<p>
+			<pre class="cmdbox">
+$ cd /tmp
+$ curl -O https://mirror.secbsd.org/pub/SecBSD/snapshots/secbsd-14-base.pub
+$ curl -O https://mirror.secbsd.org/pub/SecBSD/snapshots/amd64/{install14.img,SHA256.sig}
+$ signify -Cp secbsd-14-base.pub -x SHA256.sig install14.img
+</pre>
+			<p class="purple">Plug in an usb flash drive.</p>
+			<pre class="cmdbox">
+$ su
+root@hardenedbsd:~ # camcontrol devlist
+SanDisk Cruzer Blade 1.26        at scbus5 target 0 lun 0 (da0,pass1)
+</pre>
+			<p class="purple">
+				Assuming your usb device was recognized as da0:
+			<pre class="cmdbox">
+root@hardenedbsd:~ # dd if=install14.img of=/dev/da0 bs=1M conv=sync
+665+0 records in
+665+0 records out
+697303040 bytes transferred in 83.083902 secs (8392757 bytes/sec)
+root@hardenedbsd:~ #
+</pre>
+			You are now ready to start installing SecBSD.<br>
+			<p class="purple">
+			Now boot on usb flash drive created and <a href="docs.html#install">perform a install.</a><br>
+			<p class="purple">
+			How to <a href="docs.html#xfce">install XFCE Desktop</a> on SecBSD.
+
+			<h3 id="netbsd"><span class="green">&#x2588;</span>
+				NetBSD
+			</h3>
+			<p>
+			<pre class="cmdbox">
+$ cd /tmp
+$ ftp https://mirror.secbsd.org/pub/SecBSD/snapshots/amd64/install14.img
+</pre>
+			<p class="purple">Plug in an usb flash drive.</p>
+			<pre class="cmdbox">
+$ su
+dd if=install14.img of=/dev/rsd0d bs=1m
+</pre>
+			<p class="purple">In the previous command we have used rsd0d in order to refer to the whole sd0 disk.</p>
+			You are now ready to start installing SecBSD.<br>
+
+			<p class="purple">
+			Now boot on usb flash drive created and <a href="docs.html#install">perform a install.</a><br>
+			<p class="purple">
+			How to <a href="docs.html#xfce">install XFCE Desktop</a> on SecBSD.
+			<h3 id="mac"><span class="green">&#x2588;</span>
+				Mac
+			</h3>
+			<p>Please create the SecBSD installation guide for Mac and send it to purplerain@secbsd.org</p>
+			<h3 id="windows"><span class="green">&#x2588;</span>
+				Windows
+			</h3>
+			<p>Please create the SecBSD installation guide for Windows and send it to purplerain@secbsd.org</p>
+			<h3 id="gnu-linux"><span class="green">&#x2588;</span>
+				GNU/Linux
+			</h3>
+			<p>Please create the SecBSD installation guide for GNU/Linux and send it to purplerain@secbsd.org</p>
+		</div>
+	</body>
+</html>

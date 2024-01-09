@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset=utf-8>
+      <title>SecBSD Mirrors</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="SecBSD Mirrors">
+      <link rel="canonical" href="https://www.secbsd.org/">
+      <link rel="stylesheet" href="secbsd.css">
+   </head>
+   <body>
+      <header>
+         <nav>
+            <div>
+               <h1><a href="index.html">
+                  <img src="/img/logo.png" alt="[SecBSD]"></a>
+               </h1>
+            </div>
+            <ul>
+               <li><a href="index.html">About</a></li>
+               <li><a href="download.html">Download</a></li>
+               <li><a href="docs.html">Docs</a></li>
+               <li><a href="faq.html">Faq</a></li>
+               <li><a href="team.html">Team</a></li>
+               <li><a href="sponsors.html">Sponsors</a></li>
+            </ul>
+         </nav>
+      </header>
+      <div class="box">
+         <b class="green">&#x2588;</b>
+         <b>SecBSD Mirrors</b><br><br>
+         <p class="purple">Download via HTTPS.
+         </p>
+         <p class="purple">SecBSD can be obtained via HTTPS.
+            Typically you only need a single small piece of boot media and then the rest
+            of the files can be installed from a number of locations, including directly
+            off the internet.
+            Consult the <a href="docs.html#overview">installation guide</a> for details.
+         </p>
+         <p class="purple">Choose a mirror near you from the following list of mirrors
+            which provide SecBSD.
+         </p>
+         <b>Netherlands:</b>
+         <ul class="list">
+            <li>https://mirror.secbsd.org/pub/SecBSD<br>
+            Location: Amsterdam.<br>
+            Maintained by Purple Rain.<br>
+            Protocols: https.<br><br>
+            </li>
+            <li>https://mirror.laylo.nl/pub/SecBSD<br>
+            Location: Amsterdam.<br>
+            Maintained by h3artbl33d.<br>
+            Protocols: https.<br>
+            Updated hourly from mirror.secbsd.org<br><br>
+            </li>
+         </ul>
+         <p>Information for prospective mirrors</p>
+         <p class="purple">To be listed on this page we require mirrors
+            to be fast, up to date, capable, and well-connected to networks
+            in the region in which they serve.
+         </p>
+         <p>Mirrors must carry the following:</p>
+         <p>OS and packages for all architectures supported
+            by SecBSD.
+         </p>
+         <p class="purple">As of Jan 2024, the minimum space required is approximately
+            250GB.
+         </p>
+         <p>However, to reduce problems for users when snapshot
+            packages are updated,
+            it is strongly recommended to use the rsync options
+            --delete-delay --delay-updates which requires additional space
+            during updates.
+            --fuzzy may also be helpful to reduce the amount of data transferred
+            when updating snapshot packages. Depending on the disk space
+            available, mirrors may provide more contents, such as older releases,
+            current source tree, etc.
+         </p>
+         <p>Operators of mirrors who are interested in having their site added
+            to the list on this page should contact purplerain@secbsd.org with
+            further details about their site, including network connectivity,
+            geographic location, and general information.
+         </p>
+      </div>
+   </body>
+</html>
