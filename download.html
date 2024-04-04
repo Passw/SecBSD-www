@@ -40,9 +40,9 @@
 				Tor Onion service by Laylo:<br><br>
 				<a href="http://zqsjg25lnx7zratmne3dhbcqt5paehitom3qp2rjmwttuy7gzbzqwayd.onion/pub/SecBSD/">
 				http://zqsjg25lnx7zratmne3dhbcqt5paehitom3qp2rjmwttuy7gzbzqwayd.onion/pub/SecBSD/</a><br><br>
-				To install SecBSD from either an USB flash drive download install14.img<br>
+				To install SecBSD from either an USB flash drive download install15.img<br>
 				If you want to install SecBSD from either an optic medium as CD-ROM / DVD
-				download install14.iso
+				download install15.iso
 			</p>
 			<h3><span class="green">&#x2588;</span> Prepare a bootable USB flash drive with SecBSD Installer</h3>
 			<h3>From:</h3>
@@ -61,11 +61,11 @@
 			<p>
 			<pre class="cmdbox">
 $ cd /tmp
-$ ftp https://mirror.secbsd.org/pub/SecBSD/snapshots/secbsd-14-base.pub
-$ ftp https://mirror.secbsd.org/pub/SecBSD/snapshots/amd64/{install14.img,SHA256.sig}
-$ signify -Cp secbsd-14-base.pub -x SHA256.sig install14.img
+$ ftp https://mirror.secbsd.org/pub/SecBSD/snapshots/secbsd-15-base.pub
+$ ftp https://mirror.secbsd.org/pub/SecBSD/snapshots/amd64/{install15.img,SHA256.sig}
+$ signify -Cp secbsd-15-base.pub -x SHA256.sig install15.img
 Signature Verified
-install14.img: OK
+install15.img: OK
 </pre>
 			<p class="purple">Plug in an usb flash drive.</p>
 			<pre class="cmdbox">
@@ -74,7 +74,7 @@ hw.disknames=sd0:xxxxxxxxxxxxxxxx,sd1:xxxxxxxxxxxxxxxx
 </pre>
 			<p class="purple">Assuming the device was recognized as sd1:</p>
 			<pre class="cmdbox">
-$ doas dd if=install14.img of=/dev/rsd1c bs=1m
+$ doas dd if=install15.img of=/dev/rsd1c bs=1M
 664+1 records in
 664+1 records out
 696745984 bytes transferred in 72.198 secs (9650464 bytes/sec)
@@ -91,9 +91,9 @@ $ doas dd if=install14.img of=/dev/rsd1c bs=1m
 			<p>
 			<pre class="cmdbox">
 $ cd /tmp
-$ curl -O https://mirror.secbsd.org/pub/SecBSD/snapshots/secbsd-14-base.pub
-$ curl -O https://mirror.secbsd.org/pub/SecBSD/snapshots/amd64/{install14.img,SHA256.sig}
-$ signify -Cp secbsd-14-base.pub -x SHA256.sig install14.img
+$ curl -O https://mirror.secbsd.org/pub/SecBSD/snapshots/secbsd-15-base.pub
+$ curl -O https://mirror.secbsd.org/pub/SecBSD/snapshots/amd64/{install15.img,SHA256.sig}
+$ signify -Cp secbsd-15-base.pub -x SHA256.sig install15.img
 </pre>
 			<p class="purple">Plug in an usb flash drive.</p>
 			<pre class="cmdbox">
@@ -104,7 +104,7 @@ SanDisk Cruzer Blade 1.26        at scbus5 target 0 lun 0 (da0,pass1)
 			<p class="purple">
 				Assuming your usb device was recognized as da0:
 			<pre class="cmdbox">
-root@hardenedbsd:~ # dd if=install14.img of=/dev/da0 bs=1M conv=sync
+root@hardenedbsd:~ # dd if=install15.img of=/dev/da0 bs=1M conv=sync
 665+0 records in
 665+0 records out
 697303040 bytes transferred in 83.083902 secs (8392757 bytes/sec)
@@ -122,12 +122,12 @@ root@hardenedbsd:~ #
 			<p>
 			<pre class="cmdbox">
 $ cd /tmp
-$ ftp https://mirror.secbsd.org/pub/SecBSD/snapshots/amd64/install14.img
+$ ftp https://mirror.secbsd.org/pub/SecBSD/snapshots/amd64/install15.img
 </pre>
 			<p class="purple">Plug in an usb flash drive.</p>
 			<pre class="cmdbox">
 $ su
-dd if=install14.img of=/dev/rsd0d bs=1m
+dd if=install15.img of=/dev/rsd0d bs=1m
 </pre>
 			<p class="purple">In the previous command we have used rsd0d in order to refer to the whole sd0 disk.</p>
 			You are now ready to start installing SecBSD.<br>
