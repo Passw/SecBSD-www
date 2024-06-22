@@ -2,27 +2,11 @@
 <html lang="en">
   <head>
     <meta charset=utf-8>
-    <title>SecBSD Docs</title>
+    <title>Tools in SecBSD</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="SecBSD Docs">
+    <meta name="description" content="Tools in SecBSD">
     <link rel="canonical" href="https://secbsd.org/">
     <link rel="stylesheet" href="secbsd.css">
-    <!--
-      Copyright (c) 2005-2009 Steven Mestdagh <steven@openbsd.org>
-
-      Permission to use, copy, modify, and distribute this documentation for
-      any purpose with or without fee is hereby granted, provided that the
-      above copyright notice and this permission notice appear in all copies.
-
-      THE DOCUMENTATION IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL
-      WARRANTIES WITH REGARD TO THIS DOCUMENTATION INCLUDING ALL IMPLIED
-      WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE
-      AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL
-      DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR
-      PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
-      TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-      PERFORMANCE OF THIS DOCUMENTATION
-      -->
   </head>
   <body>
     <header>
@@ -35,10 +19,11 @@
         <ul>
           <li><a href="index.html">About</a></li>
           <li><a href="download.html">Download</a></li>
+	  <li><a href="tools.html">Tools</a></li>
           <li><a class="active">Docs</a></li>
           <li><a href="faq.html">Faq</a></li>
           <li><a href="team.html">Team</a></li>
-          <li><a href="sponsors.html">Sponsors</a></li>
+          <li><a href="donate.html">Donate</a></li>
         </ul>
       </nav>
     </header>
@@ -129,9 +114,6 @@
         contributions. Eg, if you are contributing a port: keep it up to date
         with upstream. If not kept up-to-date, we might consider the port
         to be obsolete and eventually remove it.<br><br>
-        Currently, we do not have an established means of communication,
-        like IRC/XMPP or a forum. As soon as anything is setup, we'll update
-        this document accordingly.
       </p>
       <h3 id="overview"><span class="green">&#x2588;</span>
         Overview of the Installation Procedure
@@ -243,37 +225,37 @@ boot> <b>boot hd1d:/bsd.rd</b>
         The following installation images are available:
       <ul class="list">
         <li>
-          <b>install14.img</b>
-          <b class="purple">[</b><a href="https://mirror.secbsd.org/pub/SecBSD/snapshots/amd64/install14.img">amd64</a><b class="purple">]</b>
+          <b>install15.img</b>
+          <b class="purple">[</b><a href="https://mirror.secbsd.org/pub/SecBSD/snapshots/amd64/install15.img">amd64</a><b class="purple">]</b>
           <br>
           A disk image that can be written to a USB flash drive or similar device.
           <br>
           Includes the <a href="#FilesNeeded">file sets</a>.
           <p>
         <li>
-          <b>miniroot14.img</b>
-          <b class="purple">[</b><a href="https://mirror.secbsd.org/pub/SecBSD/snapshots/amd64/miniroot14.img">amd64</a><b class="purple">]</b>
+          <b>miniroot15.img</b>
+          <b class="purple">[</b><a href="https://mirror.secbsd.org/pub/SecBSD/snapshots/amd64/miniroot15.img">amd64</a><b class="purple">]</b>
           <br>
           The same as above, but file sets are not included.
           They can be pulled down from the internet or from a local disk.
           <p>
         <li>
-          <b>install14.iso</b>
-          <b class="purple">[</b><a href="https://mirror.secbsd.org/pub/SecBSD/snapshots/amd64/install14.iso">amd64</a><b class="purple">]</b>
+          <b>install15.iso</b>
+          <b class="purple">[</b><a href="https://mirror.secbsd.org/pub/SecBSD/snapshots/amd64/install15.iso">amd64</a><b class="purple">]</b>
           <br>
           An ISO 9660 image that can be used to create an install CD/DVD.
           <br>
           Includes the file sets.
           <p>
         <li>
-          <b>cd14.iso</b>
-          <b class="purple">[</b><a href="https://mirror.secbsd.org/pub/SecBSD/snapshots/amd64/cd14.iso">amd64</a><b class="purple">]</b>
+          <b>cd15.iso</b>
+          <b class="purple">[</b><a href="https://mirror.secbsd.org/pub/SecBSD/snapshots/amd64/cd15.iso">amd64</a><b class="purple">]</b>
           <br>
           The same as above, but file sets are not included.
           <p>
         <li>
-          <b>floppy14.img</b>
-          <b class="purple">[</b><a href="https://mirror.secbsd.org/pub/SecBSD/snapshots/amd64/floppy14.img">amd64</a><b class="purple">]</b>
+          <b>floppy15.img</b>
+          <b class="purple">[</b><a href="https://mirror.secbsd.org/pub/SecBSD/snapshots/amd64/floppy15.img">amd64</a><b class="purple">]</b>
           <br>
           Supports some older machines that lack other booting options.
       </ul>
@@ -298,9 +280,9 @@ minirootXX.img: OK
         SHA256.sig file to cryptographically verify the downloaded image.
       </p>
       <pre class="cmdbox">
-$ <b>signify -Cp /etc/signify/secbsd-14-base.pub -x SHA256.sig install14.img</b>
+$ <b>signify -Cp /etc/signify/secbsd-15-base.pub -x SHA256.sig install15.img</b>
 Signature Verified
-install14.img: OK
+install15.img: OK
 </pre>
       <p class="purple">
         Note that the signify package on other operating systems may not include the
@@ -333,7 +315,7 @@ Directory does not contain SHA256.sig. Continue without verification? [no]
         Using SecBSD, assuming the device was recognized as sd1:
       </p>
       <pre class="cmdbox">
-# <b>dd if=install14.img of=/dev/rsd1c bs=1m</b>
+# <b>dd if=install15.img of=/dev/rsd1c bs=1M</b>
 </pre>
       <p class="purple">
         Note that the <b>raw I/O device</b> is used, rsd1c rather than
@@ -1017,7 +999,7 @@ dhcp
       <h2>Installing Xfce</h2>
       <pre class="cmdbox">
 $ <b>doas pkg_add -v xfce xfce-extras consolekit2</b>
-$ vi ~/.xsession and uncomment the line 14 exec /usr/local/bin/startxfce4 --with-ck-launch
+$ vi ~/.xsession and uncomment the line 32 exec /usr/local/bin/startxfce4 --with-ck-launch
 $ save and quit :wq!
 </pre>
       <p class="purple">
